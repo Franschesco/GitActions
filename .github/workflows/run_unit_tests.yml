@@ -21,7 +21,7 @@ jobs:
         run: echo Hello World
 
     run_tests:
-      needs: HelloWorld
+      needs: HelloWorlde
       runs-on: ubuntu-latest
 
       steps:
