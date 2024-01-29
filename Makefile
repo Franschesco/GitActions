@@ -5,7 +5,7 @@
 ## jesouisperdu
 ##
 
-SRC	=	main.c \
+SRC	=	pipi.c \
 
 OBJ	=	$(SRC:.c=.o)
 
