@@ -10,7 +10,6 @@ on:
 
 jobs:
   run_tests:
-    needs: HelloWorlde
     runs-on: ubuntu-latest
 
     steps:
