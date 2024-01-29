@@ -9,25 +9,24 @@ on:
   workflow_dispatch:
 
 jobs:
-    run_tests:
-      needs: HelloWorlde
-      runs-on: ubuntu-latest
-      container: epitechcontent/epitest-docker
+  run_tests:
+    needs: HelloWorlde
+    runs-on: ubuntu-latest
 
-      steps:
-        - uses: actions/checkout@v3
-          with:
-            fetch-depth: 0
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
-        - name: install
-          run: sudo dnf install -y libcriterion-dev
+      - name: install
+        run: sudo dnf install -y libcriterion-dev
 
-        - name: compile
-          run: gcc -o test pipi.c -lcriterion
+      - name: compile
+        run: gcc -o test pipi.c -lcriterion
 
-        - name: exe
-          run: ./test
+      - name: exe
+        run: ./test
 
-        - name: Stop Workflow
-          if: ${{ failure() }}
-          run: exit 1
+      - name: Stop Workflow
+        if: ${{ failure() }}
+        run: exit 1
