@@ -19,14 +19,14 @@ jobs:
           with:
             fetch-depth: 0
 
+        - name: install
+          run: sudo dnf install -y libcriterion-dev
+
         - name: compile
-          run: make
+          run: gcc -o test pipi.c -lcriterion
 
-        - name: run_test
-          run: make tests_run
-
-        - name: clean
-          run: make fclean
+        - name: exe
+          run: ./test
 
         - name: Stop Workflow
           if: ${{ failure() }}
