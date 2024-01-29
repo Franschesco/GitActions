@@ -1,0 +1,42 @@
+name: RunUnit
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  HelloWorld:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: run
+        run: echo Hello World
+
+    run_tests:
+      runs-on: ubuntu-latest
+
+      steps:
+        - uses: actions/checkout@v3
+          with:
+            fetch-depth: 0
+
+        - name: compile
+          run: make
+
+        - name: run_test
+          run: make tests_run
+
+        - name: clean
+          run: make fclean
+
+        - name: Stop Workflow
+          if: ${{ failure() }}
+          run: exit 1
