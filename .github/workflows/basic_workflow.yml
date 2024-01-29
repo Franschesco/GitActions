@@ -1,9 +1,5 @@
 name: GitActions
 
-env:
-  MIRROR_URL: "git@github.com:EpitechPromo2027/B-DOP-200-STG-2-1-chocolatine-auguste.mulley.git"
-  EXECUTABLES: "antman"
-
 on:
   push:
     branches: [ "main" ]
@@ -13,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  check_coding_style:
+  HelloWorld:
     runs-on: ubuntu-latest
     container: ghcr.io/epitech/coding-style-checker:latest
 
@@ -23,4 +19,4 @@ jobs:
           fetch-depth: 0
 
       - name: run
-        run: echo HelloWorld
+        run: echo Hello World
