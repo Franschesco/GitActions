@@ -9,18 +9,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  HelloWorld:
-    runs-on: ubuntu-latest
-    container: epitechcontent/epitest-docker
-
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: run
-        run: echo Hello World
-
     run_tests:
       needs: HelloWorlde
       runs-on: ubuntu-latest
